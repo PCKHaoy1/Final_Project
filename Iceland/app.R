@@ -14,7 +14,7 @@ library(ggplot2)
 
 #GDP Data cleaning and graphing
 
-GDP_all <- read.csv("~/Desktop/Final_project/GDP.csv", header = TRUE, check.names = FALSE, stringsAsFactors = FALSE)
+GDP_all <- read.csv("GDP.csv", header = TRUE, check.names = FALSE, stringsAsFactors = FALSE)
 
 
 names(GDP_all)[1] <- "Country"
@@ -46,8 +46,8 @@ city_data <- data.frame(
   population = c(135000, 19000, 7000, 2500, 2600)
 )
 
-#Parcipitation Data
-precip_raw <- read_delim("~/Desktop/Final_Project/parcipitation.csv")
+#Parcipitation Data 
+precip_raw <- read_delim("parcipitation.csv")
 colnames(precip_raw)
 
 names(precip_raw) <- trimws(names(precip_raw))
@@ -165,7 +165,8 @@ ui <- navbarPage(
               plotlyOutput("stats_plot", height = 400),
               div(class = "card-footer small text-muted",
                   p("Interpretation:",
-                    "Iceland’s GDP has surged since 2010—powered by tourism, ",
+                    "In the 2010s and early 2020s, tourism became the dominant sector, contributing significantly to GDP through services such as hospitality, transportation, and cultural exports. The number of tourists visiting Iceland has grown exponentially, surpassing the population many times over each year. Meanwhile, Iceland continues to capitalize on its abundant geothermal and hydroelectric resources, which power its industries sustainably and attract energy-intensive operations like data centers and aluminum smelting.
+                      Despite its small scale, Iceland ranks high globally in terms of GDP per capita, reflecting a high standard of living, robust social systems, and a focus on sustainable development. However, its economic reliance on tourism and global market fluctuations also makes it vulnerable to shocks, such as during the COVID-19 pandemic., ",
                     "renewable energy exports, and tech start‑ups.")))
         ),
         conditionalPanel(
@@ -173,7 +174,9 @@ ui <- navbarPage(
           div(class = "card shadow-sm",
               leafletOutput("city_pop_map", height = 420),
               div(class = "card-footer small text-muted",
-                  p("Hover over circles to see the population of Reykjavik and other towns.")))
+                  p("Iceland's total population is just over 370,000, making it one of the most sparsely populated countries in Europe. Yet despite its modest population, Iceland has a dynamic urban structure, where population density and services are heavily concentrated in a few key urban areas, while much of the country remains rural or uninhabited. Click to view the popultion of the city.
+
+                    .")))
         )
       )
     )
