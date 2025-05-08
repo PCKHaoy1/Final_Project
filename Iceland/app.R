@@ -14,6 +14,8 @@ library(ggplot2)
 
 #GDP Data cleaning and graphing
 
+#setwd("~/Desktop/Final_Project/Iceland")
+
 GDP_all <- read.csv("GDP.csv", header = TRUE, check.names = FALSE, stringsAsFactors = FALSE)
 
 
@@ -320,7 +322,7 @@ server <- function(input, output, session) {
       addProviderTiles(providers$CartoDB.Positron) %>%
       setView(lng = -20, lat = 65, zoom = 4) %>%
       addMarkers(lng = -21.94, lat = 64.14, popup = "🇮🇸 Reykjavík (Iceland)") %>%
-      addMarkers(lng = -13.6, lat = 65.3, popup = "🇬🇱 East Greenland") %>%
+      addMarkers(lng = -22.0, lat = 72.0, popup = "🇬🇱 East Greenland") %>%
       addMarkers(lng = -8.7, lat = 62.0, popup = "🇫🇴 Faroe Islands") %>%
       addMarkers(lng = -22.6, lat = 63.4, popup = "Vestmannaeyjar (South Iceland Islands)") %>%
       addCircles(lng = -21.94, lat = 64.14, radius = 100000, color = "blue", opacity = 0.4)
